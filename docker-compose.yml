@@ -3,10 +3,14 @@ services:
     image: postgres:15.4
     container_name: customer-eligility
     environment:
+      POSTGRES_DB: lemon-energy
       POSTGRES_HOST: 127.0.0.1
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: lemon_local
     ports:
       - '5432:5432'
     volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
