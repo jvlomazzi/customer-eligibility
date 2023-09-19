@@ -20,7 +20,7 @@ import { AuthModule } from './auth/auth.module';
         username: configService.get<string>('DATABASE_USERNAME'),
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_NAME'),
-        entities: [`${__dirname}/api/v1/*/entities/*.entity{.ts,.js}`],
+        entities: [`${__dirname}/resources/*/entities/*.entity{.ts,.js}`],
         migrations: [`${__dirname}/migrations/*{.ts,.js}`],
         migrationsTableName: 'migrations',
         migrationsRun: true,
