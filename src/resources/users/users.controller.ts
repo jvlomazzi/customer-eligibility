@@ -1,13 +1,31 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { UsersService } from './users.service';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
+import {
+  ApiCreatedResponse,
+  ApiForbiddenResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UsersService } from './users.service';
 
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
+  @ApiCreatedResponse({
+    description: 'The record has been successfully created.',
+  })
+  @ApiForbiddenResponse({ description: 'Forbidden.' })
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
