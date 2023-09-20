@@ -9,6 +9,7 @@ import {
   Max,
   Min,
 } from 'class-validator';
+import { IsCpfOrCnpj } from '../../../decorators/is-cpf-or-cnpj.decorator';
 import {
   ClassesDeConsumo,
   ModalidadesTarifarias,
@@ -19,6 +20,9 @@ export class CheckEligibilityDto {
   @IsString()
   @ApiProperty({
     description: 'property description',
+  })
+  @IsCpfOrCnpj('numeroDoDocumento', {
+    message: 'O CPF ou CNPJ inserido é inválido.',
   })
   numeroDoDocumento: string;
 
