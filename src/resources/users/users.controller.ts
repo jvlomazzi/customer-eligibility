@@ -12,6 +12,7 @@ import {
   ApiForbiddenResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { ValidationPipe } from '../../validation/validation.pipe';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersService } from './users.service';
@@ -26,7 +27,7 @@ export class UsersController {
     description: 'The record has been successfully created.',
   })
   @ApiForbiddenResponse({ description: 'Forbidden.' })
-  create(@Body() createUserDto: CreateUserDto) {
+  create(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
