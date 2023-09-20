@@ -13,7 +13,7 @@ import { CustomersService } from '../services/customers.service';
 export class CustomersController {
   constructor(private readonly customersService: CustomersService) {}
 
-  @Post()
+  @Post('check-eligibility')
   @ApiOperation({ summary: 'Check customer eligibity' })
   @ApiOkResponse({
     type: CheckEligibilityDto,
