@@ -5,8 +5,8 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { CustomersService } from './customers.service';
-import { CheckEligibilityDto } from './dto/check-eligibility.dto';
+import { CheckEligibilityDto } from '../dtos/check-eligibility.request.dto';
+import { CustomersService } from '../services/customers.service';
 
 @ApiTags('Customers')
 @Controller('customers')
