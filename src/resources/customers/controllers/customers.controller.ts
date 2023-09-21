@@ -6,6 +6,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { CheckEligibilityDto } from '../dtos/check-eligibility.request.dto';
+import { EligibilityReponse } from '../enums/check-eligibility.enum';
 import { CustomersService } from '../services/customers.service';
 
 @ApiTags('Customers')
@@ -21,7 +22,7 @@ export class CustomersController {
     isArray: false,
   })
   @ApiForbiddenResponse({ description: 'Forbidden.' })
-  checkEligibility(@Body() dto: CheckEligibilityDto) {
+  checkEligibility(@Body() dto: CheckEligibilityDto): EligibilityReponse {
     return this.customersService.checkEligibility(dto);
   }
 }
