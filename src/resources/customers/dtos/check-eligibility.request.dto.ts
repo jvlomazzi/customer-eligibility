@@ -14,7 +14,7 @@ import {
   ClassesDeConsumo,
   ModalidadesTarifarias,
   TiposDeConexao,
-} from '../enums/customer.enum';
+} from '../enums/check-eligibility.enum';
 
 export class CheckEligibilityDto {
   @IsString()

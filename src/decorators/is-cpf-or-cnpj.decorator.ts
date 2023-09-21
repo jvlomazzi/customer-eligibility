@@ -16,8 +16,6 @@ export function IsCpfOrCnpj(
       options: validationOptions,
       validator: {
         validate(value: any, args: ValidationArguments) {
-          console.log('teste: ', isValidCpf(value));
-          console.log('teste1: ', isValidCnpj(value));
           return isValidCpf(value) || isValidCnpj(value);
         },
       },
