@@ -18,3 +18,13 @@ export enum ModalidadesTarifarias {
   VERDE = 'verde',
   CONVENCIONAL = 'convencional',
 }
+
+export type EligibilityReponse =
+  | {
+      elegivel: boolean;
+      economiaAnualDeCO2: number;
+    }
+  | {
+      elegivel: boolean;
+      razoesDeInelegibilidade: string[];
+    };
