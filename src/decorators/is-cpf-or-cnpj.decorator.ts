@@ -30,6 +30,10 @@ function isValidCpf(cpf: string): boolean {
     return false;
   }
 
+  if (/(\d)\1{10}/.test(cleanCpf)) {
+    return false;
+  }
+
   const firstDigit = calculateDigit(cleanCpf.substring(0, 9));
   const secondDigit = calculateDigit(cleanCpf.substring(0, 10));
 
