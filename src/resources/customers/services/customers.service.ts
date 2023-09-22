@@ -14,12 +14,13 @@ import {
 
 @Injectable()
 export class CustomersService {
-  private ineligibilityReasons: string[] = [];
+  private ineligibilityReasons: string[];
   private totalConsumption: number;
   private monthQuantity: number;
   private averageConsumption: number;
 
   checkEligibility(dto: CheckEligibilityDto): EligibilityReponse {
+    this.ineligibilityReasons = [];
     this.setConsumptionValues(dto.historicoDeConsumo);
 
     this.checkMinimumConsumption(dto.tipoDeConexao);

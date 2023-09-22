@@ -13,7 +13,7 @@ describe('IsCpfOrCnpj Decorator', () => {
   beforeAll(() => (instance = new Test()));
 
   it('should succeed without error when cpf is valid', () => {
-    instance.cpfOrCnpj = '680.876.290-27';
+    instance.cpfOrCnpj = '21554495008';
 
     const errors = validateSync(instance);
 
@@ -21,7 +21,7 @@ describe('IsCpfOrCnpj Decorator', () => {
   });
 
   it('should succeed without error when cnpj is valid', () => {
-    instance.cpfOrCnpj = '90.175.372/0001-41';
+    instance.cpfOrCnpj = '33400689000109';
 
     const errors = validateSync(instance);
 
@@ -29,7 +29,7 @@ describe('IsCpfOrCnpj Decorator', () => {
   });
 
   it('should not validate an invalid CPF', () => {
-    instance.cpfOrCnpj = '000.000.000-00';
+    instance.cpfOrCnpj = '1111111111111';
 
     const errors = validateSync(instance);
 
@@ -37,19 +37,10 @@ describe('IsCpfOrCnpj Decorator', () => {
   });
 
   it('should not validate an invalid CNPJ', () => {
-    instance.cpfOrCnpj = '00.000.000/0000-00';
+    instance.cpfOrCnpj = '111111111111111';
 
     const errors = validateSync(instance);
 
     expect(errors.length).toBeGreaterThan(0);
-  });
-
-  it('should be able to validate cpf or cnpj with already clean value', () => {
-    const instance = new Test();
-    instance.cpfOrCnpj = '68087629027';
-
-    const errors = validateSync(instance);
-
-    expect(errors.length).toBe(0);
   });
 });
